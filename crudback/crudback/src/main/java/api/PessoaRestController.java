@@ -5,9 +5,9 @@
  */
 package api;
 
-import entidades.BaseEntity;
+import entidades.Pessoa;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import services.BaseService;
 
 /**
  *
@@ -15,8 +15,7 @@ import services.BaseService;
  */
 
 @RestController
-public class BaseRestController <T extends BaseEntity>{
-   
+@RequestMapping("/pessoa")
+public class PessoaRestController extends BaseRestController<Pessoa>{
     
-    protected BaseService<T> baseService;
 }
