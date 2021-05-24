@@ -1,0 +1,4 @@
+entidades\BaseEntity.class
+entidades\Pessoa.class
+com\mycompany\crudback\CrudBack.class
+entidades\Endereco.class

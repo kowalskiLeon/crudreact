@@ -39,10 +39,6 @@ class CadastroEstabelecimento extends React.Component {
                         <Form.Label>Dono</Form.Label>
                         <Form.Control as="select" defaultValue="Choose...">
                             <option>Escolha uma das opções...</option>
-                            <option>Masculino</option>
-                            <option>Feminino</option>
-                            <option>Não Binário</option>
-                            <option>Prefiro não informar.</option>
                         </Form.Control>
                     </Form.Group>
                 </Col>
