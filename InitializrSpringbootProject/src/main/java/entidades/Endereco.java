@@ -5,13 +5,16 @@
  */
 package entidades;
 
+import configs.PojoBase;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author guilherme.moura
  */
 @Entity
+@Table(name = "endereco", schema = PojoBase.DB)
 public class Endereco extends BaseEntity{
     
     public String endereco;

@@ -9,10 +9,10 @@ import configs.PojoBase;
 import java.util.Date;
 import java.util.UUID;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.Generated;
@@ -24,8 +24,8 @@ import org.hibernate.annotations.UpdateTimestamp;
  * @author guilherme.moura
  */
 
-@Entity
-public class BaseEntity implements PojoBase {
+@MappedSuperclass
+public abstract class BaseEntity implements PojoBase {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,11 +39,21 @@ public class BaseEntity implements PojoBase {
     public Date remocao;
     
     @UpdateTimestamp
+    @Column(nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     public Date modificacao;
     
-    @Column(name = "exclusao_logica", columnDefinition = "boolean DEFAULT false")
+    @Column(name = "exclusao_logica", columnDefinition = "boolean DEFAULT false" , nullable = true)
     public boolean exclusao_logica;
+    
+    @Column(name = "ativo", columnDefinition = "boolean DEFAULT true", nullable = true)
+    public boolean ativo;
+    
+    @Column(nullable = true)
+    public UUID uuid;
+    
+    @Column(nullable = true)
+    public int versao;
 
     public BaseEntity() {
     }
