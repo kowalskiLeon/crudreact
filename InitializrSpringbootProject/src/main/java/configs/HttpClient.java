@@ -12,7 +12,7 @@ import org.apache.http.params.HttpParams;
 
 /**
  *
- * @author igor.santos
+ * @author guilherme.moura
  */
 public class HttpClient {
 

@@ -59,34 +59,15 @@ public abstract class BaseServiceImpl<T extends PojoBase> implements BaseService
         return (T) crudRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public T getObjetoByUUID(UUID id) {
-        return (T) crudRepository.findByUuid(id).orElse(null);
-    }
 
-    @Override
-    public void updateUUID(T objeto) {
-        crudRepository.atualizarCampoUuid(objeto.getUuid(), objeto.getId());
-    }
+    
 
     @Override
     public T saveObject(T obj, boolean updateVersion) {
         if (obj.getExclusaoLogica() == null) {
             obj.setExclusaoLogica(false);
         }
-        if (obj.getAtivo() == null) {
-            obj.setAtivo(true);
-        }
-        if (obj.getInclusao() == null) {
-            obj.setInclusao(new Date());
-        }
-        if (obj.getVersao() == null) {
-            obj.setVersao(0);
-        }
         obj.setModificacao(new Date());
-        if (updateVersion) {
-            obj.setVersao(obj.getVersao() + 1);
-        }
         return (T) crudRepository.save(obj);
     }
 
@@ -101,7 +82,6 @@ public abstract class BaseServiceImpl<T extends PojoBase> implements BaseService
         pojo.setExclusaoLogica(true);
         pojo.setModificacao(new Date());
         pojo.setExclusao(new Date());
-        pojo.setAtivo(false);
         return (T) crudRepository.save(pojo);
     }
 
@@ -114,7 +94,6 @@ public abstract class BaseServiceImpl<T extends PojoBase> implements BaseService
             try {
                 U aux = (U) obj.getClass().newInstance();
                 aux.setId(obj.getId());
-                aux.setUuid(obj.getUuid());
                 return aux;
             } catch (Exception ex) {
                 Logger.getLogger(BaseServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

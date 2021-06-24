@@ -27,7 +27,7 @@ import java.util.Map;
 
 /**
  *
- * @author paulo.gomes
+ * @author guilherme.moura
  */
 public class GsonUtils {
 

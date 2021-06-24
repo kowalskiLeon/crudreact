@@ -7,7 +7,7 @@ package configs;
 
 /**
  *
- * @author breno.melo
+ * @author guilherme.moura
  */
 public class PaginacaoDTO {
     

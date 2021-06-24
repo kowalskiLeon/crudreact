@@ -7,6 +7,8 @@ package entidades;
 
 import configs.PojoBase;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -23,7 +25,11 @@ public class Pessoa extends BaseEntity{
     public String cpf;
     public String genero;
     public String estadoCivil;
+    
+    @JoinColumn(name = "id_endereco", nullable = true)
+    @ManyToOne(optional = true)
     public Endereco endereco;
+    
     public String descricao;
 
     public Pessoa() {

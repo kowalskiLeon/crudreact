@@ -23,37 +23,27 @@ import org.hibernate.annotations.UpdateTimestamp;
  *
  * @author guilherme.moura
  */
-
 @MappedSuperclass
 public abstract class BaseEntity implements PojoBase {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
-    
+
     @Generated(GenerationTime.INSERT)
     @Temporal(TemporalType.TIMESTAMP)
     public Date inclusao;
-    
+
     @Temporal(TemporalType.TIMESTAMP)
     public Date remocao;
-    
+
     @UpdateTimestamp
     @Column(nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     public Date modificacao;
-    
-    @Column(name = "exclusao_logica", columnDefinition = "boolean DEFAULT false" , nullable = true)
+
+    @Column(name = "exclusao_logica", columnDefinition = "boolean DEFAULT false", nullable = true)
     public boolean exclusao_logica;
-    
-    @Column(name = "ativo", columnDefinition = "boolean DEFAULT true", nullable = true)
-    public boolean ativo;
-    
-    @Column(nullable = true)
-    public UUID uuid;
-    
-    @Column(nullable = true)
-    public int versao;
 
     public BaseEntity() {
     }
@@ -107,26 +97,6 @@ public abstract class BaseEntity implements PojoBase {
     }
 
     @Override
-    public UUID getUuid() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setUuid(UUID uuid) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Boolean getAtivo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setAtivo(Boolean ativo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public Boolean getExclusaoLogica() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -146,17 +116,4 @@ public abstract class BaseEntity implements PojoBase {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public Integer getVersao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setVersao(Integer versao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
-    
 }

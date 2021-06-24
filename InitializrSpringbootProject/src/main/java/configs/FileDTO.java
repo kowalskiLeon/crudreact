@@ -7,7 +7,7 @@ package configs;
 
 /**
  *
- * @author caio-
+ * @author guilherme.moura
  */
 public class FileDTO {
 

@@ -11,23 +11,15 @@ import java.util.UUID;
 
 /**
  *
- * @author breno.melo
+ * @author guilherme.moura
  */
 public interface PojoBase extends Serializable, Cloneable {
 
     public static final String DB = "testbed";
 
-    public UUID getUuid();
-
-    public void setUuid(UUID uuid);
-
     public Long getId();
 
     public void setId(Long id);
-
-    public Boolean getAtivo();
-
-    public void setAtivo(Boolean ativo);
 
     public Boolean getExclusaoLogica();
 
@@ -44,9 +36,5 @@ public interface PojoBase extends Serializable, Cloneable {
     public Date getExclusao();
 
     public void setExclusao(Date exclusao);
-
-    public Integer getVersao();
-
-    public void setVersao(Integer versao);
 
 }

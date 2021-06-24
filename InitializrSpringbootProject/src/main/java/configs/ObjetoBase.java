@@ -21,7 +21,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 /**
  *
- * @author paulo.gomes
+ * @author guilherme.moura
  */
 @MappedSuperclass
 //@EntityListeners(LogEvents.class)
@@ -85,26 +85,6 @@ public abstract class ObjetoBase implements PojoBase {
 
     public ObjetoBase(Long id) {
         this.id = id;
-    }
-
-    @Override
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    @Override
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    @Override
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    @Override
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
     }
 
     @Override
@@ -196,16 +176,6 @@ public abstract class ObjetoBase implements PojoBase {
 
     public void setIdSync(Long idSync) {
         this.idSync = idSync;
-    }
-
-    @Override
-    public Integer getVersao() {
-        return versao;
-    }
-
-    @Override
-    public void setVersao(Integer versao) {
-        this.versao = versao;
     }
 
     @Override

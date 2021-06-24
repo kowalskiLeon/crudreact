@@ -18,7 +18,7 @@ import services.TipoEstabelecimentoService;
  * @author guilherme.moura
  */
 @RestController
-@RequestMapping("/estabelecimento")
+@RequestMapping("/tipoestabelecimento")
 public class TipoEstabelecimentoRestController extends BaseRestController<TipoEstabelecimento>{
     
     private final TipoEstabelecimentoService service;

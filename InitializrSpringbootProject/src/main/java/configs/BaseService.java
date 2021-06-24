@@ -16,10 +16,6 @@ public interface BaseService<T> {
 
     T getObjetoById(Long id);
 
-    T getObjetoByUUID(UUID id);
-
-    void updateUUID(T objeto);
-
     T saveObjeto(T obj);
 
     T saveObject(T obj, boolean updateVersion);

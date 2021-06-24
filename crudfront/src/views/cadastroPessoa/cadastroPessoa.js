@@ -3,8 +3,29 @@ import { Col, Form, Row, Button, ButtonGroup, ButtonToolbar, Table } from "react
 import BaseTable from "../BaseTable";
 
 class CadastroPessoa extends React.Component {
+
+
+    async getAll() {
+
+        let url = 'https://127.0.0.1:7035/crudreact/v1/pessoa/listarTodos';
+        let username = 'postgres';
+        let password = '642138983';
+        let headers = new Headers();
+
+        headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
+
+        const response = await fetch(url, headers)
+            .then(response => response.json())
+            .then(data => console.log(data));
+        console.log(response)
+    }
+
+
+
     render (){
         const colunas = ['ID', 'Nome, CPF'];
+        this.getAll();
+        
     
     return (
         <div className="container-fluid">

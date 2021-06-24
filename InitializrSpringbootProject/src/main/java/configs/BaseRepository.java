@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Pessoa
  *
- * @author caio.siqueira
+ * @author guilherme.moura
  * @param <T>
  */
 @NoRepositoryBean
@@ -27,12 +27,5 @@ public interface BaseRepository<T extends PojoBase> extends JpaRepository<T, Lon
     @Modifying
     @Query("UPDATE #{#entityName} obj set obj.id = :valor  where obj.id =:id ")
     public void atualizarCampoId(@Param("valor") Long valor, @Param("id") Long id);
-    @Modifying
-    @Query("UPDATE #{#entityName} obj set obj.uuid = :valor  where obj.id =:id ")
-    public void atualizarCampoUuid(@Param("valor") UUID valor, @Param("id") Long id);
-    @Modifying
-    @Query("UPDATE #{#entityName} obj set obj.ativo = :valor  where obj.id =:id ")
-    public void atualizarCampoAtivo(@Param("valor") Boolean valor, @Param("id") Long id);
     
-    public Optional<T> findByUuid(UUID uuid);
 }

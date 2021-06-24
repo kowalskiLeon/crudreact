@@ -102,19 +102,6 @@ public abstract class BaseRestController<T extends PojoBase> {
                 HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/ativo", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity saveObjetoAtivo(@RequestBody String json) {
-        T obj = (T) GsonUtils.getInstanceWithStringDateAdapter().fromJson(json, classe);
-        T objeto = baseService.getObjetoById(obj.getId());
-        objeto.setAtivo(!objeto.getAtivo());
-        baseService.saveObjeto(objeto);
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("mensagem", "Salvo com sucesso!");
-
-        return new ResponseEntity(GsonUtils.getInstanceWithStringDateAdapter().toJson(obj, classe), headers,
-                HttpStatus.OK);
-    }
-
     // @RequestMapping(value = "/update", method = RequestMethod.PUT, produces =
     // "application/json")
     public ResponseEntity updateObjeto(@RequestBody String json) {
